@@ -1,0 +1,6 @@
+package com.letseat.model;
+
+public class User {
+	@Builder
+	
+}

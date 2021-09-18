@@ -1,0 +1,5 @@
+package com.letseat.repository;
+
+public interface UserRepository {
+
+}

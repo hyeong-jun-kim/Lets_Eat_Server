@@ -1,0 +1,5 @@
+package com.letseat.model;
+
+public enum Gender {
+	MALE, FEMALE
+}
