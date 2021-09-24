@@ -3,7 +3,7 @@ server:
   servlet:
     context-path: /letseat
     encoding:
-      charset: UTF-8
+      charset: utf-8
       enabled: true
       force: true
     
@@ -15,9 +15,9 @@ spring:
       
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
-    username: cos
-    password: cos1234
+    url: jdbc:mysql://localhost:3306/letseat?serverTimezone=Asia/Seoul
+    username: root
+    password: rlagudwns31!
     
   jpa:
     open-in-view: true

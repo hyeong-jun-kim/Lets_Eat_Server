@@ -1,6 +1,7 @@
 package com.letseat.model;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,22 +26,25 @@ import lombok.NoArgsConstructor;
 public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int userId;
 	
-	@Column(nullable=false, length=20)
-	private String userid;
+	@Column(nullable = false, length =30)
+	private String email;
 	
-	@Column(nullable=false, length=20)
-	private String name;
-	
-	@Column(nullable=false, length=20)
+	@Column(nullable = false,length=20)
 	private String password;
 	
-	@Column(nullable=false)
-	private int phoneNumber;
+	@Column(nullable = false,length=20)
+	private String name;
+	
+	@Column(nullable = false,length=20)
+	private String birthday;
 	
 	@Enumerated(EnumType.STRING)
-	private GenderType gender;
+	private ApiType api_token;
+	
+	@Column(length=10)
+	private String gender;
 	
 	@CreationTimestamp
 	private Timestamp createDate;
