@@ -1,12 +1,9 @@
 package com.letseat.model.user;
 
 import java.sql.Timestamp;
-import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,13 +12,13 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
 @Entity
 public class User {
 	@Id
@@ -39,9 +36,6 @@ public class User {
 	
 	@Column(nullable = false,length=20)
 	private String birthday;
-	
-	@Enumerated(EnumType.STRING)
-	private ApiType api_token;
 	
 	@Column(length=10)
 	private String gender;

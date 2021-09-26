@@ -3,7 +3,6 @@
     <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="javax.annotation.Generated"/>
     <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
-    <fullyQualifiedTypeName name="org.hibernate.annotations.CreationTimestamp"/>
     <fullyQualifiedTypeName name="javax.transaction.Transactional"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
@@ -15,7 +14,6 @@
     <fullyQualifiedTypeName name="com.letseat.controller.UserController"/>
     <fullyQualifiedTypeName name="com.letseat.model.User"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
-    <fullyQualifiedTypeName name="java.sql.Timestamp"/>
     <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
     <fullyQualifiedTypeName name="com.letseat.service.UserService"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.EnableMBeanExport"/>
@@ -38,11 +36,22 @@
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.config.JpaRepositoryConfigExtension"/>
     <fullyQualifiedTypeName name="com.letseat.model.ResType"/>
     <fullyQualifiedTypeName name="java.sql.Blob"/>
-    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="com.letseat.model.restaurant.ResMenu"/>
+    <fullyQualifiedTypeName name="com.letseat.model.order.Order"/>
+    <fullyQualifiedTypeName name="javax.websocket.OnError"/>
+    <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
+    <fullyQualifiedTypeName name="org.hibernate.annotations.CreationTimestamp"/>
+    <fullyQualifiedTypeName name="java.sql.Timestamp"/>
     <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
     <fullyQualifiedTypeName name="com.letseat.model.restaurant.Restaurant"/>
-    <fullyQualifiedTypeName name="com.letseat.model.order.Order"/>
+    <fullyQualifiedTypeName name="com.letseat.repository.TableQRCodeRepository"/>
+    <fullyQualifiedTypeName name="com.letseat.model.qrcode.ResQRCode"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="com.letseat.model.qrcode.TableQRCode"/>
+    <fullyQualifiedTypeName name="com.letseat.dto.UserDto"/>
+    <fullyQualifiedTypeName name="com.letseat.model.user.User"/>
+    <fullyQualifiedTypeName name="org.modelmapper.ModelMapper"/>
+    <fullyQualifiedTypeName name="lombok.Getter"/>
 </qualifiedTypeNameHistroy>

@@ -1,5 +1,6 @@
 package com.letseat.controller;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.letseat.dto.UserDto;
 import com.letseat.model.user.ApiType;
 import com.letseat.model.user.User;
 import com.letseat.repository.UserRepository;
@@ -19,14 +21,10 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	@PostMapping("/register/normal")
-	public User regsister(@RequestBody User userInfo) throws IllegalAccessException{
+	public User regsister(@RequestBody UserDto userDto) throws IllegalAccessException{
+		ModelMapper mm = new ModelMapper();
 		User user = new User();
-		user.setEmail(userInfo.getEmail());
-		user.setPassword(userInfo.getPassword());
-		user.setName(userInfo.getName());
-		user.setGender(userInfo.getGender());
-		user.setBirthday(userInfo.getBirthday());
-		user.setApi_token(ApiType.normal);
+		mm.map(userDto, user);
 		boolean check = userService.register(user);
 		if(!check)
 			throw new IllegalStateException("이미 존재하는 회원입니다.");
@@ -41,10 +39,13 @@ public class UserController {
 		return "emailCheckOK";
 	}
 	@PostMapping("/login/normal")
-	public User login(@RequestBody User userInfo) {
-		String email = userInfo.getEmail();
-		String password = userInfo.getPassword();
-		User user = userRepository.findByEmail(email);
+	public User login(@RequestBody UserDto userDto) {
+		String email = userDto.getEmail();
+		String password = userDto.getPassword();
+		ModelMapper mm = new ModelMapper();
+		User user = new User();
+		mm.map(userDto, user);
+		user = userRepository.findByEmail(email);
 		if(user == null) {
 			throw new IllegalStateException("존재하지 않는 회원입니다.");
 		}

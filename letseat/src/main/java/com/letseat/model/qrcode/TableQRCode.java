@@ -1,5 +1,7 @@
 package com.letseat.model.qrcode;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.letseat.model.restaurant.ResType;
 import com.letseat.model.restaurant.Restaurant;
@@ -30,6 +34,9 @@ public class TableQRCode {
 	private int tableNumber;
 	
 	@ManyToOne
-	@JoinColumn(name="resId", referencedColumnName = "resId")
+	@JoinColumn(name="resId")
 	private Restaurant restaurant;
+	
+	@CreationTimestamp
+	private Timestamp createDate;
 }

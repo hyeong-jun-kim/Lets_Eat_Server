@@ -1,6 +1,7 @@
 package com.letseat.model.restaurant;
 
 import java.sql.Blob;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,4 +43,7 @@ public class ResMenu {
 	@ManyToOne
 	@JoinColumn(name = "resId", referencedColumnName = "resId")
 	private Restaurant restaurant;
+	
+	@CreationTimestamp
+	private Timestamp createDate;
 }
