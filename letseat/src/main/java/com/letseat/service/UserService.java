@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.letseat.model.User;
+import com.letseat.model.user.User;
 import com.letseat.repository.UserRepository;
 
 @Service

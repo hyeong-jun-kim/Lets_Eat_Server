@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.letseat.model.ApiType;
-import com.letseat.model.User;
+import com.letseat.model.user.ApiType;
+import com.letseat.model.user.User;
 import com.letseat.repository.UserRepository;
 import com.letseat.service.UserService;
 
@@ -18,7 +18,6 @@ public class UserController {
 	private UserRepository userRepository;
 	@Autowired
 	private UserService userService;
-	
 	@PostMapping("/register/normal")
 	public User regsister(@RequestBody User userInfo) throws IllegalAccessException{
 		User user = new User();

@@ -1,4 +1,4 @@
-package com.letseat.model;
+package com.letseat.model.restaurant;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.letseat.model.user.Owner;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,30 +28,29 @@ public class Restaurant {
 	@Column(nullable = false,length = 50)
 	private String resName;
 	
-	@ManyToOne
-	@JoinColumn(name="resUserId")
-	private resUser resUser;
+	@Column(nullable = false, length = 20)
+	private String phoneNumber;
 	
-	@Column
-	private int phoneNumber;
+	@Column(nullable = false, length = 40)
+	private String openTime;
 	
-	@Column(length = 100)
-	private String Location;
+	@Column(nullable = false, length = 500)
+	private String resIntro;
 	
-	@Column
-	private int menuCode;
-	
-	@Column
-	private int tableNumber;
-	
-	@Column 
+	@Column(nullable = false)
 	private int businessNumber;
 	
-	@Column(length = 500)
-	private String resInfo; 
+	@Column(length=100, nullable = false)
+	private String location;
 	
+	@Column
+	private int aloneAble;
 	
-	@Column(length = 500)
+	@Column(length = 500, nullable = false)
 	private String openInfo;
+	
+	@ManyToOne
+	@JoinColumn(name = "resTypeId", referencedColumnName = "resTypeId")
+	private ResType restype;
 	
 }

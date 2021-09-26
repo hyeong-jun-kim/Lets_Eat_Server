@@ -1,12 +1,9 @@
-package com.letseat.model;
+package com.letseat.model.restaurant;
 
 import java.sql.Timestamp;
-import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,30 +20,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class User {
+public class ResType {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int userId;
-	
-	@Column(nullable = false, length =30)
-	private String email;
-	
-	@Column(nullable = false,length=20)
-	private String password;
-	
-	@Column(nullable = false,length=20)
-	private String name;
-	
-	@Column(nullable = false,length=20)
-	private String birthday;
-	
-	@Enumerated(EnumType.STRING)
-	private ApiType api_token;
-	
-	@Column(length=10)
-	private String gender;
-	
+	private int resTypeId;
+
 	@CreationTimestamp
 	private Timestamp createDate;
 	
+	@Column(length = 10)
+	private String foodStyle;
 }
