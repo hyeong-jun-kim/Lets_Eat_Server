@@ -34,4 +34,9 @@ public class UserService {
 	public boolean checkEmailDuplicate(String email) {
 		return userRepository.existsByEmail(email);
 	}
+	// 이메일로 유저 아이디 찾기
+	public int findUserIdByEmail(String email) {
+		User user = userRepository.findByEmail(email);
+		return user.getUserId();
+	}
 }

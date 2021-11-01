@@ -1,7 +1,5 @@
 package com.letseat.model.restaurant;
 
-import java.sql.Timestamp;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
-import org.hibernate.annotations.CreationTimestamp;
+import com.letseat.model.user.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,28 +21,32 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 @Entity
-public class ResMenu {
+public class ResReview {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int resMenuId;
+	private int reviewId;
 	
-	@Column(nullable = false)
-	private String name;
+	@Column
+	private String menuName;
 	
-	@Column(nullable = false)
-	private int price;
+	@Column
+	private String content;
+	
+	@Column
+	private String date;
+	
+	@Column
+	private float rate;
 	
 	@Lob
 	@Column(length = 10000)
-	private String photo;
-	
-	@Column
-	private String excription;
+	private String image;
 	
 	@ManyToOne
-	@JoinColumn(name = "resId", referencedColumnName = "resId")
+	@JoinColumn(name = "resId")
 	private Restaurant restaurant;
 	
-	@CreationTimestamp
-	private Timestamp createDate;
+	@ManyToOne
+	@JoinColumn(name = "userId")
+	private User user;
 }

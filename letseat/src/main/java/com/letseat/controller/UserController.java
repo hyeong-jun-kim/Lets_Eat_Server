@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.letseat.dto.UserDto;
-import com.letseat.model.user.ApiType;
 import com.letseat.model.user.User;
 import com.letseat.repository.UserRepository;
 import com.letseat.service.UserService;
@@ -22,9 +21,7 @@ public class UserController {
 	private UserService userService;
 	@PostMapping("/register/normal")
 	public User regsister(@RequestBody UserDto userDto) throws IllegalAccessException{
-		ModelMapper mm = new ModelMapper();
-		User user = new User();
-		mm.map(userDto, user);
+		User user = userDto.toEntity();
 		boolean check = userService.register(user);
 		if(!check)
 			throw new IllegalStateException("이미 존재하는 회원입니다.");
@@ -42,9 +39,8 @@ public class UserController {
 	public User login(@RequestBody UserDto userDto) {
 		String email = userDto.getEmail();
 		String password = userDto.getPassword();
-		ModelMapper mm = new ModelMapper();
 		User user = new User();
-		mm.map(userDto, user);
+		user = userDto.toEntity();
 		user = userRepository.findByEmail(email);
 		if(user == null) {
 			throw new IllegalStateException("존재하지 않는 회원입니다.");
@@ -53,5 +49,10 @@ public class UserController {
 		if(!user_pwd.equals(password))
 			throw new IllegalStateException("비밀번호를 확인해주세요.");
 		return user;
+	}
+	// 유저 아이디로 찾기
+	@GetMapping("/find/userId")
+	public int findUserIdByEmail(@RequestParam String email) {
+		return userService.findUserIdByEmail(email);
 	}
 }

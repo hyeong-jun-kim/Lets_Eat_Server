@@ -1,12 +1,19 @@
 package com.letseat.model.restaurant;
 
+import java.sql.Blob;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.engine.jdbc.BlobImplementer;
 
 import com.letseat.model.user.Owner;
 
@@ -38,19 +45,24 @@ public class Restaurant {
 	private String resIntro;
 	
 	@Column(nullable = false)
-	private int businessNumber;
+	private String businessNumber;
+	
+	@Column(nullable = false)
+	@Enumerated(EnumType.STRING)
+	private ResType restype;
 	
 	@Column(length=100, nullable = false)
 	private String location;
 	
-	@Column
+	@Column(nullable = false)
 	private int aloneAble;
 	
-	@Column(length = 500, nullable = false)
-	private String openInfo;
+	@Lob
+	@Column(length = 10000)
+	private String image;
 	
 	@ManyToOne
-	@JoinColumn(name = "resTypeId", referencedColumnName = "resTypeId")
-	private ResType restype;
+	@JoinColumn(name = "onwerId")
+	private Owner owner;
 	
 }

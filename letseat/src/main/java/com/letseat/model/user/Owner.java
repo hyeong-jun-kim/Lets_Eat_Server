@@ -1,26 +1,31 @@
 package com.letseat.model.user;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.letseat.model.restaurant.Restaurant;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
 @Entity
+@ToString
 public class Owner {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -35,14 +40,8 @@ public class Owner {
 	@Column(nullable = false,length=20)
 	private String name;
 	
-	@Column(nullable = false)
-	private int businessNumber;
-	
 	@Column(nullable = false,length=20)
 	private String birthday;
-	
-	@Enumerated(EnumType.STRING)
-	private ApiType api_token;
 	
 	@Column(length=10)
 	private String gender;
